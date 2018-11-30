@@ -13,8 +13,8 @@ class Subscriptions(Resource):
     def get(self):
         return json.loads(
             SubscriptionModel.objects(deleted_at="")
-                .exclude('id').order_by("-created_at").limit(5)
-                .to_json())
+            .order_by("-created_at").limit(5)
+            .to_json())
 
     def post(self):
         data = request.get_json(force=True)

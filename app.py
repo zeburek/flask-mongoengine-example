@@ -1,5 +1,5 @@
 import flask
-
+from flask_cors import CORS
 from flask_restful import Api
 
 from routes.subscriptions import Subscriptions
@@ -14,6 +14,7 @@ app.config['SECRET_KEY'] = 'no-secret=no-problems'
 
 from models import db
 db.init_app(app)
+CORS(app)
 api = Api(app)
 
 api.add_resource(Subscriptions, '/subscriptions')
