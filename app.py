@@ -1,4 +1,7 @@
+import os
+
 import flask
+from flask import send_from_directory, redirect, url_for
 from flask_cors import CORS
 from flask_restful import Api
 
@@ -18,6 +21,23 @@ CORS(app)
 api = Api(app)
 
 api.add_resource(Subscriptions, '/subscriptions')
+
+@app.route('/')
+def other():
+    return redirect(url_for('index'))
+
+
+@app.route('/ui')
+def index():
+    return send_from_directory('build', 'index.html')
+
+
+@app.route('/ui/<path:path>')
+def static_proxy(path):
+    file_name = path.split('/')[-1]
+    dir_name = os.path.join('build', '/'.join(path.split('/')[:-1]))
+    return send_from_directory(dir_name, file_name)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=4000)
