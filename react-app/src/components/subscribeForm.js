@@ -22,25 +22,34 @@ class SubscribeForm extends Component {
 
   render() {
     return (
-      <div className="ml-5 mr-5">
+      <div data-test="new-subs-form" className="ml-5 mr-5">
         <InputGroup>
-          <Input 
+          <Input
+            data-test="new-subs-email"
             placeholder="Email"
             name="email"
             value={this.state.email}
             onChange={this.handleChange}/>
-          <Input 
+          <Input
+            data-test="new-subs-name"
             placeholder="Имя пользователя"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}/>
-          <Input 
+          <Input
+            data-test="new-subs-time"
             placeholder="Время"
             name="time"
             value={this.state.time}
             onChange={this.handleChange}/>
           <InputGroupAddon addonType="append">
-            <Button color="success" onClick={this.submit}>Подписаться</Button>
+            <Button
+              data-test="new-subs-submit"
+              color="success"
+              onClick={this.submit}
+            >
+              Подписаться
+            </Button>
           </InputGroupAddon>
         </InputGroup>
       </div>

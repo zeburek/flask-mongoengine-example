@@ -4,9 +4,9 @@ import { Alert } from "reactstrap";
 class Description extends Component {
   render() {
     return (
-      <Alert color="info">
-        <h4 className="alert-heading">Привет!</h4>
-        <p>
+      <Alert data-test="description" color="info">
+        <h4 data-test="description-header" className="alert-heading">Привет!</h4>
+        <p data-test="description-text">
           Перед Вами сервис подписки пользователей на все рассылки нашего сайта. 
           Для подписки необходимо указать: <b>Email, Имя пользователя и время на которое оформляем подписку</b>.
           После формы отображается список с 5 последними подписками.
