@@ -1,0 +1,23 @@
+version: "3.1"
+
+services:
+  app:
+    build: .
+    environment:
+      DB_NAME: "subscribes"
+      DB_HOST: "mongodb://mongodb:27017/subscribes"
+    ports:
+      - 4000:4000
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      MONGO_INITDB_DATABASE: "subscribes"
+    ports:
+      - 27017:27017
+    command: mongod

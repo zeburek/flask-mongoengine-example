@@ -4,17 +4,18 @@
 следующие действия:
 
 ```bash
-docker build -t students .
-docker run -p 4000:4000 students:latest
+docker-compose up
 ```
 
 После чего микросервис будет доступен по адресу 
 http://localhost:4000
 
 Стоит учитывать, что если вы хотите сделать сервис доступным по другому URL - 
-необходимо запускать Docker контейнер с дополнительным параметром:
-```bash
-docker run -p 4000:4000 -e BACKEND_HOST=http://192.168.1.102:4000 students:latest
+необходимо в переменные окружения для приложения добавить адрес:
+```yaml
+  app:
+    environment:
+      BACKEND_HOST: http://192.168.1.102:4000
 ```
 
 # Описание API-сервиса
