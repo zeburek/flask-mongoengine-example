@@ -11,8 +11,8 @@ class SubscriptionsList extends Component {
         <Table hover>
           <thead data-test="subs-table-header">
             <tr>
-              <th data-test="subs-table-header-email">Email</th>
               <th data-test="subs-table-header-name">Имя пользователя</th>
+              <th data-test="subs-table-header-email">Email</th>
               <th data-test="subs-table-header-sub" className="text-center w-25">Подписка</th>
             </tr>
           </thead>
